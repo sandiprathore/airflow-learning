@@ -28,16 +28,26 @@ pip3 install typing_extensions
 ```
 ###### initialize the database
 ```
-airflow initdb
+airflow db inita
 ```
 
 Create user
 ```
-airflow users create -u admin -p admin -r admin -e admin@admin.com -f name -l surname
+airflow users create --username admin --password admin --firstname admin --lastname admin --role Admin --email admin@gmail.com
 ```
+Reset airflow database 
+```
+airflow db reset -y && airflow db init
+```
+
 start the web server, default port is 8080
 ```
 airflow webserver 
+```
+
+Run airflow with nohup
+```
+nohup airflow webserver > myoutput.log &
 ```
 
 start the scheduler. 
